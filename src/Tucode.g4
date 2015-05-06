@@ -294,7 +294,7 @@ IF: 'si';
 ELSE: 'sino';
 OPERATOR_ASSIG: '=';
 fragment COMILLA: '\'';
-ID: [a-z] '_'? [a-z]*;
+ID: ([a-z]|[A-Z]) '_'? ([a-z]|[A-Z])*  ;
 INLINE_COMMENT: '&&' (.)*? '\n' -> skip;
 WS : [' '\t\r\n]+ -> skip ;
 MULTILINE_COMMENT :   '&-' (.)*? '-&' -> skip;
@@ -302,7 +302,6 @@ WHILE: 'mientras';
 FOR: 'para';
 LOOP: 'repetir';
 DO: 'hacer';
-
 
 CHARACTER
     : '\''(.)'\''
