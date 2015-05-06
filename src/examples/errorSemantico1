@@ -1,0 +1,4 @@
+numero definir comienzo() {
+	numero x = y + x * 2 / 3;
+	imprimir(numero);
+}
