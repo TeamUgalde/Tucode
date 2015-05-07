@@ -1,0 +1,11 @@
+numero respuesta = 1;
+repetir(5) {
+	cantidadDigitos(respuesta - 5);
+	respuesta = (respuesta * 3) - 7
+}
+if(esPositivo(respuesta)) {
+	devolver respuesta;
+} 
+sino {
+	devolver absoluto(resuesta);
+}

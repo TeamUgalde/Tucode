@@ -1,0 +1,9 @@
+&& Este es un comentario de una linea.
+booleano x = (verdadero y falso) o (84 <= 0) o (potencia(2, 4) == (34 != 1));
+si(!x) {
+	numero y = 2;
+	hacer {
+		y = 32 / y;
+		imprimir(largo("hola"));
+	} mientras(x);
+}

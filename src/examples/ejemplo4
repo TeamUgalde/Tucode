@@ -1,0 +1,13 @@
+simbolo digito = '2';
+simbolo letra = 'A';
+texto hilera = "";
+if(aEntero(letra) >= aEntero(digito)+50) {
+	hilera = "que bien rodrigo";
+}
+if(esVacio(hilera)) {
+	if(esDigito(digito)) {
+		digito = '0';
+		letra = 'Z'
+	}
+}
+devolver hilera;

@@ -1,0 +1,7 @@
+para(x = 2; x == 0; x = x + 2) {
+	simbolo x = 'd';
+	booleano b = falso;
+	mientras(verdadero) {
+		texto =  x + b + 343;
+	}
+}

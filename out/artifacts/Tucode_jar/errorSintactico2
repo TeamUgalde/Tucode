@@ -1,0 +1,9 @@
+texto definir procesar(s texto) {
+	mayuscula(s) = simbolo caracter;
+	si (caracter == booleano y) {
+		texto resultado = minuscula(s);
+	}
+	sino {
+		caracter devolver
+	}
+}
