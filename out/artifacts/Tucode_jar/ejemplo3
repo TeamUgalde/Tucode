@@ -1,11 +1,28 @@
-numero respuesta = 1;
-repetir(5) {
-	cantidadDigitos(respuesta - 5);
-	respuesta = (respuesta * 3) - 7
-}
-if(esPositivo(respuesta)) {
-	devolver respuesta;
-} 
-sino {
-	devolver absoluto(resuesta);
+&-
+	Comentario
+	multilinea
+-&
+
+numero comienzo() {
+
+	para(numero i = 1; i <= 10; i = i + 1) {
+		imprimir(i);
+		imprimirln(" ");
+	}
+	numero numElevado = potencia(2,4);
+	numero numValorAbsoluto = absoluto(-23);
+	booleano espositivo = esPositivo(-3);
+	numero resultado = numElevado + numValorAbsoluto;
+
+	imprimirln(resultado);
+
+	si(esPositivo(-3) y esDigito('2')) {
+		texto textoMayuscula = mayuscula("Este texto esta en mayuscula");
+		imprimirln(textoMayuscula);
+	}
+	sino {
+		texto textoMinuscula = minuscula("Este texto esta en minuscula");
+		imprimirln(textoMinuscula);
+	}
+	devolver 0;
 }

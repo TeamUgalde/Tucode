@@ -5,3 +5,9 @@ numero definir factorial(numero x) {
 		x = x - 1;
 	}
 }
+
+numero comienzo() {
+	numero var = factorial(5);
+	imprimir(var);
+	devolver 0;
+}

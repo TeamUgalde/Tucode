@@ -1,6 +1,6 @@
-texto definir procesar(s texto) {
+texto definir procesar(texto s) {
 	mayuscula(s) = simbolo caracter;
-	si (caracter == booleano y) {
+	si (== 1 2) {
 		texto resultado = minuscula(s);
 	}
 	sino {

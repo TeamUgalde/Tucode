@@ -1,4 +1,5 @@
-numero definir comienzo() {
+numero comienzo() {
 	numero x = y + x * 2 / 3;
-	imprimir(numero);
+	imprimir(aEntero(232));
+	devolver 0;
 }

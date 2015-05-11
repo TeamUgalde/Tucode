@@ -1,13 +1,25 @@
-simbolo digito = '2';
-simbolo letra = 'A';
-texto hilera = "";
-if(aEntero(letra) >= aEntero(digito)+50) {
-	hilera = "que bien rodrigo";
+texto definir funcionInutil() {
+	simbolo digito = '2';
+	simbolo letra = 'A';
+	texto hilera = "";
+	numero suma = aEntero(digito) + 50;
+	si(aEntero(letra) >= suma) {
+		hilera = "El ascii de A es mayor que el ascii de 2";
+	}
+	sino {
+		si(esVacio(hilera) o !esDigito(digito)) {
+			hilera = "El ascii de 2 es mayor que el ascii de A";
+		}
+	}
+	devolver hilera;
 }
-if(esVacio(hilera)) {
-	if(esDigito(digito)) {
-		digito = '0';
-		letra = 'Z'
+
+numero comienzo() {
+	numero indice = 1;
+	texto hilera = "";
+	mientras(indice < 3) {
+		texto = funcionInutil();
+		imprimirln(texto);
 	}
 }
-devolver hilera;
+
