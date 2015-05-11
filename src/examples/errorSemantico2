@@ -1,7 +1,6 @@
-para(x = 2; x == 0; x = x + 2) {
+numero comienzo() {
 	simbolo x = 'd';
 	booleano b = falso;
-	mientras(verdadero) {
-		texto =  x + b + 343;
-	}
+	texto variable =  x + b + 343;
+	imprimir(variable);
 }
