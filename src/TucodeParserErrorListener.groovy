@@ -1,7 +1,7 @@
 import org.antlr.v4.runtime.*;
 
 //Class for custom errors.
-class TucodeErrorListener extends BaseErrorListener {
+class TucodeParserErrorListener extends BaseErrorListener {
 
     // Overrides the syntaxError method, changing the error message to spanish.
     @Override
