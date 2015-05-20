@@ -2,19 +2,16 @@ grammar Tucode;
 
 expression
     : element
-    | OPERATOR_NEG expression
     | expression ( OPERATOR_MULT | OPERATOR_DIV ) expression
     | expression (OPERATOR_ADD|OPERATOR_NEG) expression
     | expression(OPERATOR_GRT | OPERATOR_LOT | OPERATOR_GRE | OPERATOR_LOE | OPERATOR_EQU | OPERATOR_DIFF) expression
-    | OPERATOR_NOT expression
+    | OPERATOR_NOT element
     | expression OPERATOR_AND expression
     | expression OPERATOR_OR expression
 ;
 
 element
-    : '(' expression ')'
-    | function_defined (DELIMITER|expression)
-    | literal
+    : function_defined | literal
     ;
 
 literal
@@ -31,7 +28,7 @@ id_decl: data_type ID ;
 //Variable declarations
 
 var_decl
-    : id_decl OPERATOR_ASSIG expression
+    : id_decl OPERATOR_ASSIG expression DELIMITER
     ;
 
 
@@ -53,22 +50,13 @@ result
 
 sentence
     : var_decl
+    | function_defined DELIMITER
     | function_def
     | if_conditional
-    | print_def
-    | println_def
-    | length_def
-    | nod_def
-    | lowercase_def
-    | uppercase_def
-    | abs_def
-    | isPositive_def
-    | power_def
     | result
     | while_def
     | dowhile_def
     | for_def
-    | isEmpty_def
     | loop_def
 ;
 
@@ -91,7 +79,7 @@ arguments
 ;
 
 argument
-    : ID
+    : expression
     ;
 
 //Block code
@@ -116,7 +104,7 @@ dowhile_def
 
 for_def
     :
-    FOR '(' expression ';' expression ';' expression ')' block
+    FOR '(' var_decl expression ';' expression ')' block
     ;
 
 loop_def
@@ -131,80 +119,13 @@ function_def
 
 //Using a function already defined
 function_defined
-    : ID  '(' arguments? ')' (DELIMITER | possible_operator expression)
-    ;
-
-//Operators
-
-possible_operator
-    : OPERATOR_ADD | OPERATOR_AND | OPERATOR_DIFF | OPERATOR_DIV | OPERATOR_EQU
-    | OPERATOR_GRE | OPERATOR_GRT | OPERATOR_LOE | OPERATOR_LOT | OPERATOR_OR | OPERATOR_MULT | OPERATOR_SUB
+    : ID  '(' arguments? ')'
     ;
 
 //Main function definition
 main_def
     : type_int FUNC_MAIN  '(' ')' block
-;
-
-//Length function definition
-length_def
-    : FUNC_LEN '(' expression ')' DELIMITER
-;
-
-//Power function definition
-power_def
-    : FUNC_POW  '(' expression',' expression ')' DELIMITER
-;
-
-//Println function definition
-println_def
-    : FUNC_PRINTLN  '(' expression ')' block
-;
-
-// Print function definition
-print_def
-    : FUNC_PRINT '(' expression ')' DELIMITER
-;
-
-//isPositive function definition
-isPositive_def
-    : FUNC_ISPOSITIVE  '(' expression ')' DELIMITER
-;
-
-//Absolute function definition
-abs_def
-    : FUNC_ABS  '(' expression ')' DELIMITER
-;
-
-//Uppercase function definition
-uppercase_def
-    : FUNC_UPPERCASE  '(' expression ')' DELIMITER
-;
-
-//Lowercase function definition
-lowercase_def
-    : FUNC_LOWERCASE  '(' expression ')' DELIMITER
-;
-
-//NOD function definition
-nod_def
-    : FUNC_NOD  '(' expression ')' DELIMITER
-;
-
-//IsEmpty function definition
-isEmpty_def
-    : FUNC_ISEMPTY  '(' expression ')' DELIMITER
-;
-
-//toInt function definition
-toInt_def
-    : FUNC_TOINT  '(' expression ')' DELIMITER
-;
-
-//isDigit function definition
-isDigit_def
-    : FUNC_ISDIGIT  '(' expression ')' DELIMITER
-;
+    ;
 
 program
     : main_def
