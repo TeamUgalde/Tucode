@@ -1,5 +1,0 @@
-numero definir comienzo() {
-	numero ~a = 3;
-	imprimirln("[===]");
-	imprimir(!!!);
-}

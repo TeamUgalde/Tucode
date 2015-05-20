@@ -48,36 +48,6 @@ public interface TucodeListener extends ParseTreeListener {
 	 */
 	void exitId_decl(TucodeParser.Id_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TucodeParser#func_call}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunc_call(TucodeParser.Func_callContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link TucodeParser#func_call}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunc_call(TucodeParser.Func_callContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link TucodeParser#inputs}.
-	 * @param ctx the parse tree
-	 */
-	void enterInputs(TucodeParser.InputsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link TucodeParser#inputs}.
-	 * @param ctx the parse tree
-	 */
-	void exitInputs(TucodeParser.InputsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link TucodeParser#input}.
-	 * @param ctx the parse tree
-	 */
-	void enterInput(TucodeParser.InputContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link TucodeParser#input}.
-	 * @param ctx the parse tree
-	 */
-	void exitInput(TucodeParser.InputContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link TucodeParser#var_decl}.
 	 * @param ctx the parse tree
 	 */
@@ -188,6 +158,26 @@ public interface TucodeListener extends ParseTreeListener {
 	 */
 	void exitParam(TucodeParser.ParamContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TucodeParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(TucodeParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(TucodeParser.ArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgument(TucodeParser.ArgumentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgument(TucodeParser.ArgumentContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TucodeParser#block}.
 	 * @param ctx the parse tree
 	 */
@@ -247,6 +237,26 @@ public interface TucodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunction_def(TucodeParser.Function_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#function_defined}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_defined(TucodeParser.Function_definedContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#function_defined}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_defined(TucodeParser.Function_definedContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#possible_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterPossible_operator(TucodeParser.Possible_operatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#possible_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitPossible_operator(TucodeParser.Possible_operatorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link TucodeParser#main_def}.
 	 * @param ctx the parse tree

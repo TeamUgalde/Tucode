@@ -1,9 +1,13 @@
-texto definir procesar(texto s) {
-	mayuscula(s) = simbolo caracter;
-	si (== 1 2) {
-		texto resultado = minuscula(s);
-	}
-	sino {
-		caracter devolver
+numero comienzo() {
+	texto definir procesar(texto s) {
+		mayuscula(s) = simbolo caracter;
+		mayuscula(s);
+		si (== 1 2) {
+			texto resultado = mayuscula(s);
+			numero var = 2 + 4 / 2
+		}
+		sino {
+			caracter devolver
+		}
 	}
 }

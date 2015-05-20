@@ -3,7 +3,6 @@ grammar Tucode;
 expression
     : element
     | OPERATOR_NEG expression
-    | <assoc=right> expression OPERATOR_POW expression
     | expression ( OPERATOR_MULT | OPERATOR_DIV ) expression
     | expression (OPERATOR_ADD|OPERATOR_NEG) expression
     | expression(OPERATOR_GRT | OPERATOR_LOT | OPERATOR_GRE | OPERATOR_LOE | OPERATOR_EQU | OPERATOR_DIFF) expression
@@ -14,7 +13,7 @@ expression
 
 element
     : '(' expression ')'
-    | func_call
+    | function_defined (DELIMITER|expression)
     | literal
     ;
 
@@ -28,24 +27,11 @@ literal
 
 id_decl: data_type ID ;
 
-//call a function
-func_call
-    : ID '(' inputs? ')' (DELIMITER)?
-;
-
-inputs
-    : input  (',' input)*
-;
-
-input
-    : expression
-    ;
-
 
 //Variable declarations
 
 var_decl
-    : id_decl OPERATOR_ASSIG expression DELIMITER
+    : id_decl OPERATOR_ASSIG expression
     ;
 
 
@@ -67,6 +53,7 @@ result
 
 sentence
     : var_decl
+    | function_def
     | if_conditional
     | print_def
     | println_def
@@ -97,6 +84,14 @@ params
 
 param
     : id_decl
+    ;
+
+arguments
+    : argument (COMMA argument )*
+;
+
+argument
+    : ID
     ;
 
 //Block code
@@ -131,13 +126,24 @@ loop_def
 
 //Function definition
 function_def
-    : data_type DEF_FUNC id_decl  '(' params? ')' block
+    : data_type DEF_FUNC ID  '(' params? ')' block
 ;
 
+//Using a function already defined
+function_defined
+    : ID  '(' arguments? ')' (DELIMITER | possible_operator expression)
+    ;
+
+//Operators
+
+possible_operator
+    : OPERATOR_ADD | OPERATOR_AND | OPERATOR_DIFF | OPERATOR_DIV | OPERATOR_EQU
+    | OPERATOR_GRE | OPERATOR_GRT | OPERATOR_LOE | OPERATOR_LOT | OPERATOR_OR | OPERATOR_MULT | OPERATOR_SUB
+    ;
 
 //Main function definition
 main_def
-    : FUNC_MAIN  '(' ')' block
+    : type_int FUNC_MAIN  '(' ')' block
 ;
 
 //Length function definition
@@ -247,9 +253,6 @@ OPERATOR_NEG
     :   '-'
     ;
 
-OPERATOR_POW
-    :   '^'
-    ;
 
 OPERATOR_MULT
     :   '*'
@@ -271,8 +274,6 @@ L_PARENTHESIS: '(';
 R_PARENTHESIS: ')';
 L_BRACE: '{';
 R_BRACE: '}';
-L_BRACKET: '[';
-R_BRACKET: ']';
 DELIMITER: ';';
 COMMA: ',';
 DEF_FUNC: 'definir';

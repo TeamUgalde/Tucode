@@ -1,7 +1,0 @@
-numero definir factorial(numero x) {
-	numero resultado = 1;
-	mientras (x > 0) {
-		resultado = resultado * x;
-		x = x - 1;
-	}
-}
