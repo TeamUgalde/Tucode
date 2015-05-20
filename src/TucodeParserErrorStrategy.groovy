@@ -50,4 +50,19 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
         recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e);
     }
 
+    @Override
+    public void reportMissingToken(Parser recognizer) {
+        if (inErrorRecoveryMode(recognizer)) {
+            return;
+        }
+        beginErrorCondition(recognizer);
+
+        Token t = recognizer.getCurrentToken();
+        IntervalSet expecting = getExpectedTokens(recognizer);
+        String msg = " Falta el token: "+expecting.toString(recognizer.getVocabulary())+
+                " at "+getTokenErrorDisplay(t);
+
+        recognizer.notifyErrorListeners(t, msg, null);
+    }
+
 }
