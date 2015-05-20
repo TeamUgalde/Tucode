@@ -9,12 +9,11 @@ expression
     | OPERATOR_NOT expression
     | expression OPERATOR_AND expression
     | expression OPERATOR_OR expression
-    | function_defined
 ;
 
 element
     : '(' expression ')'
-    | function_defined
+    | function_defined (DELIMITER|expression)
     | literal
     ;
 
@@ -28,19 +27,11 @@ literal
 
 id_decl: data_type ID ;
 
-inputs
-    : input  (',' input)*
-;
-
-input
-    : expression
-    ;
-
 
 //Variable declarations
 
 var_decl
-    : id_decl OPERATOR_ASSIG expression DELIMITER
+    : id_decl OPERATOR_ASSIG expression
     ;
 
 

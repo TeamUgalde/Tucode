@@ -3,7 +3,8 @@ numero comienzo() {
 		mayuscula(s) = simbolo caracter;
 		mayuscula(s);
 		si (== 1 2) {
-			texto resultado = minuscula(s);
+			texto resultado = mayuscula(s);
+			numero var = 2 + 4 / 2
 		}
 		sino {
 			caracter devolver
