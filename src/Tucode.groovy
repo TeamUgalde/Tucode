@@ -24,27 +24,35 @@ class Tucode {
 
             // Create a buffer of tokens pulled from the lexer.
             CommonTokenStream tokens = new CommonTokenStream(lexer)
-
             tokens.fill()
 
-            //println("Lista de tokens:")
+            if(args.contains("-tokens")) {
+                println("\nLista de tokens (Análisis léxico):")
 
-            //Iterates trough the buffer of tokens.
-            /*
-            int tokenNumber = 1;
-            for (Object tok : tokens.getTokens()) {
-                println("      Token #" + tokenNumber.toString() + ": " + tok.toString().split("'")[1])
-                tokenNumber++
-            }*/
+                //Iterates trough the buffer of tokens to display the token list.
+                int tokenNumber = 1;
+                for (Object tok : tokens.getTokens()) {
+                    println("      Token #" + tokenNumber.toString() + ": " + tok.toString().split("'")[1])
+                    tokenNumber++
+                }
+            }
 
             //Create a parser for the syntax analysis.
-
-
             TucodeParser parser = new TucodeParser(tokens)
-            //parser.removeErrorListeners()
-            //parser.addErrorListener(new TucodeParserErrorListener())
+
+            // Add a custom error listener to the lexer.
+            parser.removeErrorListeners()
+            parser.addErrorListener(new TucodeParserErrorListener())
+
+            // Add custom error handler for the syntax error messages (spanish).
+            parser.setErrorHandler(new TucodeParserErrorStrategy())
+
+            // Starts the parse, generates a tree to be printed and displayed.
             ParseTree tree = parser.program()
+
+            println("\nÁrbol sintáctico (Análisis de sintáxis):")
             println(tree.toStringTree(parser))
+            if(args.contains("-ig")) tree.inspect(parser);
         }
     }
 }

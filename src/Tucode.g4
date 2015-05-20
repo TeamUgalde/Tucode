@@ -28,11 +28,6 @@ literal
 
 id_decl: data_type ID ;
 
-//call a function
-func_call
-    : ID '(' inputs? ')' (DELIMITER)?
-;
-
 inputs
     : input  (',' input)*
 ;

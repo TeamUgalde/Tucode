@@ -11,8 +11,6 @@ class TucodeParserErrorListener extends BaseErrorListener {
                             String msg,
                             RecognitionException e)
     {
-        char invalidChar = msg.charAt(msg.length()-2)
-        System.err.println("Error léxico en la línea: "+line+", Columna: "+charPositionInLine+". Símbolo inválido:  "+
-                "'"+invalidChar+"'")
+        System.err.println("Error sintáctico en la línea: "+line+", Columna: "+charPositionInLine+" | "+msg)
     }
 }
