@@ -20,7 +20,7 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
     public void reportInputMismatch(Parser recognizer,
                                        InputMismatchException e)
     {
-        String msg = "La entrada -> ${getTokenErrorDisplay(e.getOffendingToken())} no calza(match) con lo esperado: "+
+        String msg = "La entrada -> ${getTokenErrorDisplay(e.getOffendingToken())} no coincide con lo esperado: "+
                 " "+e.getExpectedTokens().toString(recognizer.getVocabulary());
         recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e);
     }
