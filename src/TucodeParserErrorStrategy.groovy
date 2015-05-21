@@ -10,8 +10,8 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
                                           NoViableAltException e)
             throws RecognitionException
     {
-        String msg = "No hay alternativa para la entrada -> ${getTokenErrorDisplay(e.getOffendingToken())}"; // nonstandard msg
-        parser.notifyErrorListeners(e.getOffendingToken(), msg, e);
+        String msg = "No hay alternativa para la entrada -> ${filterTokenString(getTokenErrorDisplay(e.getOffendingToken()))} (no debería venir)"; // nonstandard msg
+        parser.notifyErrorListeners(e.getOffendingToken(), msg, e)
     }
 
 
@@ -20,9 +20,9 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
     public void reportInputMismatch(Parser recognizer,
                                        InputMismatchException e)
     {
-        String msg = "La entrada -> ${getTokenErrorDisplay(e.getOffendingToken())} no coincide con lo esperado: "+
-                " "+e.getExpectedTokens().toString(recognizer.getVocabulary());
-        recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e);
+        String msg = "La entrada -> ${filterTokenString(getTokenErrorDisplay(e.getOffendingToken()))} no coincide con lo esperado: "+
+                " "+filterTokenString(e.getExpectedTokens().toString(recognizer.getVocabulary()))
+        recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e)
     }
 
     @Override
@@ -33,11 +33,11 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
 
         beginErrorCondition(recognizer);
 
-        Token t = recognizer.getCurrentToken();
-        String tokenName = getTokenErrorDisplay(t);
-        IntervalSet expecting = getExpectedTokens(recognizer);
-        String msg = "Se encontró una entrada extraña -> "+tokenName+", lo esperado era:  "+
-                expecting.toString(recognizer.getVocabulary());
+        Token t = recognizer.getCurrentToken()
+        String tokenName = getTokenErrorDisplay(t)
+        IntervalSet expecting = getExpectedTokens(recognizer)
+        String msg = "Se encontró una entrada extraña -> "+filterTokenString(tokenName)+", lo esperado era:  "+
+                expecting.toString(recognizer.getVocabulary())
         recognizer.notifyErrorListeners(t, msg, null);
     }
 
@@ -45,9 +45,9 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
     public void reportFailedPredicate(Parser recognizer,
                                          FailedPredicateException e)
     {
-        String ruleName = recognizer.getRuleNames()[recognizer._ctx.getRuleIndex()];
-        String msg = "La regla "+ruleName+" no concuerda en la entrada -> "+getTokenErrorDisplay(e.getOffendingToken());
-        recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e);
+        String ruleName = recognizer.getRuleNames()[recognizer._ctx.getRuleIndex()]
+        String msg = "La regla "+ruleName+" no concuerda en la entrada -> "+filterTokenString(getTokenErrorDisplay(e.getOffendingToken()))
+        recognizer.notifyErrorListeners(e.getOffendingToken(), msg, e)
     }
 
     @Override
@@ -58,11 +58,18 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
         beginErrorCondition(recognizer);
 
         Token t = recognizer.getCurrentToken();
-        IntervalSet expecting = getExpectedTokens(recognizer);
-        String msg = " Falta el token: "+expecting.toString(recognizer.getVocabulary())+
-                " at "+getTokenErrorDisplay(t);
+        IntervalSet expecting = getExpectedTokens(recognizer)
+        String msg = " Falta el token: "+filterTokenString(expecting.toString(recognizer.getVocabulary()))+
+                " en "+filterTokenString(getTokenErrorDisplay(t))
 
-        recognizer.notifyErrorListeners(t, msg, null);
+        recognizer.notifyErrorListeners(t, msg, null)
+    }
+
+    public filterTokenString(String token) {
+        String res = token
+        if(token.equals("\n")) res = "\\n"
+        else if(token.equals("'\n'")) res = "'\\n'"
+        return res
     }
 
 }

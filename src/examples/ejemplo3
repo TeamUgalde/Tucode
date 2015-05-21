@@ -6,23 +6,23 @@
 numero comienzo() {
 
 	para(numero i = 1; i <= 10; i = i + 1) {
-		imprimir(i);
-		imprimirln(" ");
+		imprimir(i)
+		imprimirln(" ")
 	}
-	numero numElevado = potencia(2,4);
-	numero numValorAbsoluto = absoluto(-23);
-	booleano espositivo = esPositivo(-3);
-	numero resultado = numElevado + numValorAbsoluto;
+	numero numElevado = potencia(2,4)
+	numero numValorAbsoluto = absoluto(-23)
+	booleano espositivo = esPositivo(-3)
+	numero resultado = numElevado + numValorAbsoluto
 
-	imprimirln(resultado);
+	imprimirln(resultado)
 
 	si(esPositivo(-3) y esDigito('2')) {
-		texto textoMayuscula = mayuscula("Este texto esta en mayuscula");
-		imprimirln(textoMayuscula);
+		texto textoMayuscula = mayuscula("Este texto esta en mayuscula")
+		imprimirln(textoMayuscula)
 	}
 	sino {
-		texto textoMinuscula = minuscula("Este texto esta en minuscula");
-		imprimirln(textoMinuscula);
+		texto textoMinuscula = minuscula("Este texto esta en minuscula")
+		imprimirln(textoMinuscula)
 	}
-	devolver 0;
+	devolver 0
 }
