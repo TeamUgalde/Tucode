@@ -11,7 +11,7 @@ expression
 ;
 
 element
-    : function_defined | literal | ID
+    : function_defined | literal
     ;
 
 literal
@@ -29,6 +29,18 @@ id_decl: data_type ID ;
 
 var_decl
     : id_decl OPERATOR_ASSIG expression DELIMITER
+    ;
+
+for_var_decl
+    : id_decl OPERATOR_ASSIG expression
+    ;
+
+var_assign
+    : ID OPERATOR_ASSIG expression DELIMITER
+    ;
+
+for_var_assign
+    : ID OPERATOR_ASSIG expression
     ;
 
 
@@ -50,14 +62,15 @@ result
 
 sentence
     : var_decl
-    | function_defined DELIMITER
-    | function_def
-    | if_conditional
-    | result
+    | var_assign
     | while_def
     | dowhile_def
     | for_def
     | loop_def
+    | if_conditional
+    | function_defined DELIMITER
+    | result
+
 ;
 
 //Conditionals
@@ -84,7 +97,91 @@ argument
 
 //Block code
 block
-    : L_BRACE sentence* R_BRACE
+    : DELIMITER? L_BRACE DELIMITER? (DELIMITER* sentence DELIMITER*)*  R_BRACE DELIMITER?
+;
+
+//Function definition
+function_def
+    : data_type DEF_FUNC ID  L_PARENTHESIS params? R_PARENTHESIS block
+;
+
+//Using a function already defined
+function_defined
+    : print_def
+    | println_def
+    | length_def
+    | nod_def
+    | lowercase_def
+    | uppercase_def
+    | abs_def
+    | isPositive_def
+    | power_def
+    | isDigit_def
+    | isEmpty_def
+    | toInt_def
+    | user_function_defined
+    ;
+
+//Predefined functions
+
+//Length function definition
+length_def
+    : FUNC_LEN L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//Power function definition
+power_def
+    : FUNC_POW  L_PARENTHESIS expression',' expression R_PARENTHESIS
+;
+
+//Println function definition
+println_def
+    : FUNC_PRINTLN  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+// Print function definition
+print_def
+    : FUNC_PRINT L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//isPositive function definition
+isPositive_def
+    : FUNC_ISPOSITIVE  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//Absolute function definition
+abs_def
+    : FUNC_ABS  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//Uppercase function definition
+uppercase_def
+    : FUNC_UPPERCASE  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//Lowercase function definition
+lowercase_def
+    : FUNC_LOWERCASE  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//NOD function definition
+nod_def
+    : FUNC_NOD  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//IsEmpty function definition
+isEmpty_def
+    : FUNC_ISEMPTY  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//toInt function definition
+toInt_def
+    : FUNC_TOINT  L_PARENTHESIS expression R_PARENTHESIS
+;
+
+//isDigit function definition
+isDigit_def
+    : FUNC_ISDIGIT  L_PARENTHESIS expression R_PARENTHESIS
 ;
 
 
@@ -99,12 +196,12 @@ while_def
 
 dowhile_def
     :
-    DO block WHILE L_PARENTHESIS expression R_PARENTHESIS
+    DO block WHILE L_PARENTHESIS expression R_PARENTHESIS DELIMITER
     ;
 
 for_def
     :
-    FOR L_PARENTHESIS var_decl expression ';' expression R_PARENTHESIS block
+    FOR L_PARENTHESIS (for_var_decl | for_var_assign) ';' expression ';' for_var_assign R_PARENTHESIS block
     ;
 
 loop_def
@@ -112,23 +209,19 @@ loop_def
     LOOP L_PARENTHESIS expression R_PARENTHESIS block
     ;
 
-//Function definition
-function_def
-    : data_type DEF_FUNC ID  L_PARENTHESIS params? R_PARENTHESIS block
-;
+//User function defined.
 
-//Using a function already defined
-function_defined
+user_function_defined
     : ID  L_PARENTHESIS arguments? R_PARENTHESIS
     ;
 
 //Main function definition
 main_def
-    : type_int FUNC_MAIN  L_PARENTHESIS R_PARENTHESIS block
+    : FUNC_MAIN  L_PARENTHESIS R_PARENTHESIS block
     ;
 
 program
-    : main_def
+    : DELIMITER* function_def* DELIMITER* main_def DELIMITER*
     ;
 
 //Lexer Tokens//
@@ -195,13 +288,13 @@ L_PARENTHESIS: '(';
 R_PARENTHESIS: ')';
 L_BRACE: '{';
 R_BRACE: '}';
-DELIMITER: ';';
+DELIMITER: '\n';
 COMMA: ',';
 DEF_FUNC: 'definir';
 FUNC_LEN: 'largo';
 FUNC_PRINT: 'imprimir';
 FUNC_PRINTLN: 'imprimirln';
-FUNC_MAIN: 'comienzo';
+FUNC_MAIN: 'numero comienzo';
 FUNC_POW: 'potencia';
 FUNC_ISPOSITIVE: 'esPositivo';
 FUNC_ABS: 'absoluto';
@@ -216,14 +309,14 @@ IF: 'si';
 ELSE: 'sino';
 OPERATOR_ASSIG: '=';
 fragment COMILLA: '\'';
-ID: ([a-z]|[A-Z]) '_'? ([a-z]|[A-Z])*  ;
 INLINE_COMMENT: '&&' (.)*? '\n' -> skip;
-WS : [' '\t\r\n]+ -> skip ;
+WS : [' '\t\r]+ -> skip ;
 MULTILINE_COMMENT :   '&-' (.)*? '-&' -> skip;
 WHILE: 'mientras';
 FOR: 'para';
 LOOP: 'repetir';
 DO: 'hacer';
+ID: [a-zA-Z_] ( [a-zA-Z_] | [0-9] )*;
 
 CHARACTER
     : '\''(.)'\''

@@ -1,7 +1,5 @@
-numero comienzo() {
-	definir funcion {
-		para (i = i - 1) {
-			imprimir("xxSy")
-		}
+booleano definir funcion() {
+	para (i = i - 1) {
+		imprimir("xxSy")
 	}
 }

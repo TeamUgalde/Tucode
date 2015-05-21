@@ -13,8 +13,8 @@ class Tucode {
         }else {
             // Creates an input stream for reading the console input.
 
-            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
-            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
+            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
+            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
             // Initialize tucode lexer instance.
             TucodeLexer lexer = new TucodeLexer(input)
 

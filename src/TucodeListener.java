@@ -58,6 +58,36 @@ public interface TucodeListener extends ParseTreeListener {
 	 */
 	void exitVar_decl(TucodeParser.Var_declContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TucodeParser#for_var_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor_var_decl(TucodeParser.For_var_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#for_var_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor_var_decl(TucodeParser.For_var_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#var_assign}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_assign(TucodeParser.Var_assignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#var_assign}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_assign(TucodeParser.Var_assignContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#for_var_assign}.
+	 * @param ctx the parse tree
+	 */
+	void enterFor_var_assign(TucodeParser.For_var_assignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#for_var_assign}.
+	 * @param ctx the parse tree
+	 */
+	void exitFor_var_assign(TucodeParser.For_var_assignContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TucodeParser#data_type}.
 	 * @param ctx the parse tree
 	 */
@@ -188,6 +218,146 @@ public interface TucodeListener extends ParseTreeListener {
 	 */
 	void exitBlock(TucodeParser.BlockContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TucodeParser#function_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_def(TucodeParser.Function_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#function_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_def(TucodeParser.Function_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#function_defined}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction_defined(TucodeParser.Function_definedContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#function_defined}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction_defined(TucodeParser.Function_definedContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#length_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterLength_def(TucodeParser.Length_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#length_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitLength_def(TucodeParser.Length_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#power_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterPower_def(TucodeParser.Power_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#power_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitPower_def(TucodeParser.Power_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#println_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintln_def(TucodeParser.Println_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#println_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintln_def(TucodeParser.Println_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#print_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrint_def(TucodeParser.Print_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#print_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrint_def(TucodeParser.Print_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#isPositive_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterIsPositive_def(TucodeParser.IsPositive_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#isPositive_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitIsPositive_def(TucodeParser.IsPositive_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#abs_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterAbs_def(TucodeParser.Abs_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#abs_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitAbs_def(TucodeParser.Abs_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#uppercase_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterUppercase_def(TucodeParser.Uppercase_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#uppercase_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitUppercase_def(TucodeParser.Uppercase_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#lowercase_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterLowercase_def(TucodeParser.Lowercase_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#lowercase_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitLowercase_def(TucodeParser.Lowercase_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#nod_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterNod_def(TucodeParser.Nod_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#nod_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitNod_def(TucodeParser.Nod_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#isEmpty_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterIsEmpty_def(TucodeParser.IsEmpty_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#isEmpty_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitIsEmpty_def(TucodeParser.IsEmpty_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#toInt_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterToInt_def(TucodeParser.ToInt_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#toInt_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitToInt_def(TucodeParser.ToInt_defContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TucodeParser#isDigit_def}.
+	 * @param ctx the parse tree
+	 */
+	void enterIsDigit_def(TucodeParser.IsDigit_defContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TucodeParser#isDigit_def}.
+	 * @param ctx the parse tree
+	 */
+	void exitIsDigit_def(TucodeParser.IsDigit_defContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TucodeParser#while_def}.
 	 * @param ctx the parse tree
 	 */
@@ -228,25 +398,15 @@ public interface TucodeListener extends ParseTreeListener {
 	 */
 	void exitLoop_def(TucodeParser.Loop_defContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link TucodeParser#function_def}.
+	 * Enter a parse tree produced by {@link TucodeParser#user_function_defined}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunction_def(TucodeParser.Function_defContext ctx);
+	void enterUser_function_defined(TucodeParser.User_function_definedContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link TucodeParser#function_def}.
+	 * Exit a parse tree produced by {@link TucodeParser#user_function_defined}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunction_def(TucodeParser.Function_defContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link TucodeParser#function_defined}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunction_defined(TucodeParser.Function_definedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link TucodeParser#function_defined}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunction_defined(TucodeParser.Function_definedContext ctx);
+	void exitUser_function_defined(TucodeParser.User_function_definedContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link TucodeParser#main_def}.
 	 * @param ctx the parse tree
