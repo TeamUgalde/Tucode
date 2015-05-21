@@ -11,7 +11,7 @@ expression
 ;
 
 element
-    : function_defined | literal
+    : function_defined | literal | ID
     ;
 
 literal
@@ -62,7 +62,7 @@ sentence
 
 //Conditionals
 if_conditional
-    : IF '(' expression ')' block (ELSE block)?
+    : IF L_PARENTHESIS expression R_PARENTHESIS block (ELSE block)?
     ;
 
 
@@ -92,39 +92,39 @@ block
 
 while_def
     :
-    WHILE  '('expression')' block
+    WHILE  L_PARENTHESIS expression R_PARENTHESIS block
     ;
 
 //Do while cycle code
 
 dowhile_def
     :
-    DO block WHILE '('expression')'
+    DO block WHILE L_PARENTHESIS expression R_PARENTHESIS
     ;
 
 for_def
     :
-    FOR '(' var_decl expression ';' expression ')' block
+    FOR L_PARENTHESIS var_decl expression ';' expression R_PARENTHESIS block
     ;
 
 loop_def
     :
-    LOOP '(' expression ')' block
+    LOOP L_PARENTHESIS expression R_PARENTHESIS block
     ;
 
 //Function definition
 function_def
-    : data_type DEF_FUNC ID  '(' params? ')' block
+    : data_type DEF_FUNC ID  L_PARENTHESIS params? R_PARENTHESIS block
 ;
 
 //Using a function already defined
 function_defined
-    : ID  '(' arguments? ')'
+    : ID  L_PARENTHESIS arguments? R_PARENTHESIS
     ;
 
 //Main function definition
 main_def
-    : type_int FUNC_MAIN  '(' ')' block
+    : type_int FUNC_MAIN  L_PARENTHESIS R_PARENTHESIS block
     ;
 
 program
