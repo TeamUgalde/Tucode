@@ -1,0 +1,7 @@
+numero comienzo() {
+	imprimir("Esta es una funcion comienzo")
+}
+
+numero comienzo() {
+	imprimir("Esta es otra funcion comienzo")
+}

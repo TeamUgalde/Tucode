@@ -1,0 +1,12 @@
+definir numero funcionX (numero a, numero b, numero c) {
+	numero resultado = a * b + a - c * a / b + c
+	devolver resultado
+}
+
+numero comienzo () {
+	786
+	imprimir(probando)
+	funcionX(2,5,6)
+	funcionX(32,231,35)
+	funcionX(56,553,75)
+}

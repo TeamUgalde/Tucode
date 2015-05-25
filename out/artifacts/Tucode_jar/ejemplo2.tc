@@ -1,0 +1,11 @@
+definir definir auxilio () {
+	loop((100)) {
+		imprmirln("auxilio")
+	}
+}
+
+numero comienzo () {
+	loop(1000000) {
+		auxilio()
+	}
+}

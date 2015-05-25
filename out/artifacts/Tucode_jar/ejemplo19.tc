@@ -1,0 +1,10 @@
+texto definir estaLloviendo(booleano b) {
+	sino {
+		devolver "no esta lloviendo"
+	}
+}
+
+numero comienzo () {
+	imprimirln(estaLloviendo(verdadero))
+	imprimir(estaLloviendo(falso))
+}
