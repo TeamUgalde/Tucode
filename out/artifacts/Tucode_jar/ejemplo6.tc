@@ -1,0 +1,4 @@
+numero comienzo () {
+	imprimir(cajas('j', '8', '0')
+	imprimir(cajas('7', '6', '5'))
+}

@@ -1,0 +1,9 @@
+definir tutorial () {
+	imprimirln('&-')
+	imprimirln("Asi se escriben comentarios")
+	imprimir("&-")
+}
+
+numero comienzo {
+	tutorial()
+}

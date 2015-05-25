@@ -1,0 +1,3 @@
+numero definir areaRectangulo (numero a, numero b) {
+	devolver a * b
+}

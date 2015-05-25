@@ -1,0 +1,10 @@
+numero comienzo () {
+	si (esPositivo(lado) {
+		devolver lado * lado
+	}
+	sino {
+		numero ladoAbs = absoluto(lado)
+		numero resultado = lado * ladoAbs
+		devolver
+	}
+}

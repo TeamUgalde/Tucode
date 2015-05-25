@@ -1,0 +1,13 @@
+definir numero factorial (n) {
+	numero resultado = 0
+	mientras() {
+		resultado = resultado + n
+		n = n - 1
+	}
+	devolver resultado
+}
+
+numero comienzo () {
+	factorial(5)
+	factorial(6)
+}

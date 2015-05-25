@@ -37,7 +37,7 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
         String tokenName = getTokenErrorDisplay(t)
         IntervalSet expecting = getExpectedTokens(recognizer)
         String msg = "Se encontró una entrada extraña -> "+filterTokenString(tokenName)+", lo esperado era:  "+
-                expecting.toString(recognizer.getVocabulary())
+                expecting.toString(recognizer.getVocabulary()).replaceAll("numero comienzo", "Función principal (comienzo)").replaceAll("\\n", "Cambio de línea")
         recognizer.notifyErrorListeners(t, msg, null);
     }
 
@@ -67,8 +67,9 @@ class TucodeParserErrorStrategy extends DefaultErrorStrategy {
 
     public filterTokenString(String token) {
         String res = token
-        if(token.equals("\n")) res = "\\n"
-        else if(token.equals("'\n'")) res = "'\\n'"
+        if(token.equals("\n")) res = "Cambio de línea"
+        else if(token.equals("'\n'")) res = "'Cambio de línea'"
+        else if(token.equals("numero comienzo") || token.equals("'numero comienzo'")) res = "Función principal (comienzo)"
         return res
     }
 

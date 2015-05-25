@@ -1,0 +1,10 @@
+definir alarma (numero tiempo) {
+	hacer () {
+		imprimirln(".")
+	} mientras(tiempo => 0)
+	imprimir("ring ring")
+}
+
+numero comienzo () {
+	alarma(7600 = numero tiempo)
+}

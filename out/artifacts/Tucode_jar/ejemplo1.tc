@@ -1,0 +1,6 @@
+numero comienzo () {
+	numero i = 0
+	para(i; + 2; i < 10) {
+		imprimir(i)
+	}
+}

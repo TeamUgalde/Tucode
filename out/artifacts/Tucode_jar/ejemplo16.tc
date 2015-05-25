@@ -1,0 +1,9 @@
+numero comienzo () {
+	numero definir valor (simbolo uno, simbolo dos, simbolo tres) {
+		numero valorUno = aEntero(uno)
+		numero valorDos = aEntero(dos)
+		numero valorTres = aEntero(tres)
+		numero resultado = valorUno + valorDos + valorTres
+		devolver resultado
+	}
+}
