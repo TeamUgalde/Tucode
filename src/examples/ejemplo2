@@ -1,17 +1,17 @@
 && Este es un comentario de una linea.
 numero comienzo() {
-	booleano x = (verdadero y falso) o (84 <= 0);
+	booleano x = verdadero y falso o 84 <= 0
 	si(!x) {
-		numero y = 0;
+		numero nombreVariable = 0
 		hacer {
-			imprimirln(y);
-			y = y+2;
-		} mientras(y <= 20);
+			imprimirln(nombreVariable)
+			nombreVariable = nombreVariable+2
+		} mientras(nombreVariable <= 20)
 	}
 	sino {
 		repetir(10) {
-			imprimirln("La expresion era verdadera");
+			imprimirln("La expresion era verdadera")
 		}
 	}
-	devolver 0;
+	devolver 0
 }

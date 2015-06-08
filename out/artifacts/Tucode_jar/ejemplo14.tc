@@ -1,0 +1,5 @@
+numero comienzo() {
+	numero resUno = base * altura
+	numero resDos = / resUno 2
+	devolver resDos
+}

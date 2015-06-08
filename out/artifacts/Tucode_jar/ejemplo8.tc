@@ -1,0 +1,5 @@
+numero comienzo () "
+	texto batido1 = frutas('g')
+	texto batidoDos = frutas(';')
+	texto batidoTres = frutas('*')	
+"

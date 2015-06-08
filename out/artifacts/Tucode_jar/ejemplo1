@@ -1,13 +1,12 @@
 numero definir factorial(numero x) {
-	numero resultado = 1;
+	numero resultado = 1
 	mientras (x > 0) {
-		resultado = resultado * x;
-		x = x - 1;
+		resultado = resultado * x
+		x = x - 1
 	}
 }
-
 numero comienzo() {
-	numero var = factorial(5);
-	imprimir(var);
-	devolver 0;
+	numero var = factorial(5)
+	imprimir(var)
+	devolver 0
 }

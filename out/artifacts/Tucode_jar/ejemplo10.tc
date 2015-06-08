@@ -1,0 +1,14 @@
+numero comienzo () {
+	texto nombre = "oLiVeR"
+	texto apellido = "QuEeN"
+	texto mayuscula(nombre) = nombreMay
+	minuscula(nombre) = texto nombreMin
+	texto apellidoMay = mayuscula(apellido
+	texto apellidoMin = minuscula(apellido)
+	imprimir(nombreMin)
+	imprimir(" ")
+	imprimirnl(apellidoMay)
+	imprimir(nombreMay)
+	imprimir(" ")
+	imprimirnl(apellidoMin)
+}

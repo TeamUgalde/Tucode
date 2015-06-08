@@ -1,5 +1,0 @@
-definir funcion {
-	para (i = i - 1) {
-		imprimir("xxSy")
-	}
-}

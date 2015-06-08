@@ -1,0 +1,17 @@
+numero definir perimetroTriangulo(numero n) {
+	devolver n * 3
+}
+
+numero definir perimetroCuadrado(numero n) {
+	devolver n * 4
+}
+
+numero definir perimetroPentagono(numero n) {
+	devolver n * 5
+}
+
+numero comienzo () {
+	numero resultados! = 0
+	resultados! = resultados! + perimetroTriangulo(10) + perimetroCuadrado(6)
+	impirmir(resultados!)
+}

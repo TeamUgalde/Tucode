@@ -1,0 +1,9 @@
+numero comienzo () {
+	cantidadBits(4)
+	cantidadBits(80)
+}
+
+definir numero cantidadBits (numero n) {
+	numero resultado = potencia(numero x = 2, n)
+	devolver resultado
+}

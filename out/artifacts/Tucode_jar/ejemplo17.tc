@@ -1,0 +1,9 @@
+definir texto yaNOMAS!() {
+	devolver "por favor"
+}
+
+numero comienzo () {
+	repetir(15) {
+		yaNOMAS!()
+	}
+}

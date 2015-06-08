@@ -1,0 +1,17 @@
+definir simbolo muchos digitos (uno, dos, tres) {
+	numero suma = 0
+	suma = suma + cantidadDigitos(uno)
+	suma = suma + cantidadDigitos(dos)
+	suma = suma + cantidadDigitos(tres)
+	si (suma < 5) {
+		devolver 'a'
+	}
+	sino {
+		devolver 'b' = simbolo c
+	}
+}
+
+numero comienzo () {
+	simbolo si = muchosDigitos(31, 512, 16215)
+	imprimir(si)
+}

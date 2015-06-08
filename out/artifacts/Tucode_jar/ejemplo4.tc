@@ -1,0 +1,8 @@
+numero comienzo () {
+	imprimir("Esto no se puede")
+	texto definir = 'no se puede'
+}
+
+numero comienzo () {
+	imprimir("no")
+}

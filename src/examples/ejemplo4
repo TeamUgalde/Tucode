@@ -1,25 +1,25 @@
 texto definir funcionInutil() {
-	simbolo digito = '2';
-	simbolo letra = 'A';
-	texto hilera = "";
-	numero suma = aEntero(digito) + 50;
+	simbolo digito = '2'
+	simbolo letra = 'A'
+	texto hilera = ""
+	numero suma = aEntero(digito) + 50
 	si(aEntero(letra) >= suma) {
-		hilera = "El ascii de A es mayor que el ascii de 2";
+		hilera = "El ascii de A es mayor que el ascii de 2"
 	}
 	sino {
 		si(esVacio(hilera) o !esDigito(digito)) {
-			hilera = "El ascii de 2 es mayor que el ascii de A";
+			hilera = "El ascii de 2 es mayor que el ascii de A"
 		}
 	}
-	devolver hilera;
+	devolver hilera
 }
 
 numero comienzo() {
-	numero indice = 1;
-	texto hilera = "";
+	numero indice = 1
+	texto hilera = ""
 	mientras(indice < 3) {
-		texto = funcionInutil();
-		imprimirln(texto);
+		texto variable = funcionInutil()
+		imprimirln(variable)
 	}
 }
 

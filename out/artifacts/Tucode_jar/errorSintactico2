@@ -1,9 +1,15 @@
 texto definir procesar(texto s) {
-	mayuscula(s) = simbolo caracter;
-	si (== 1 2) {
-		texto resultado = minuscula(s);
+		mayuscula(s) = simbolo caracter
+		mayuscula(s)
+		si (1 == 2) {
+			texto resultado = minuscula(s)
+		}
+		sino {
+			devolver caracter
+			booleano variableBooleana = 2 + + 3
+		}
 	}
-	sino {
-		caracter devolver
-	}
+
+numero comienzo() {
+	procesar("Cualquier hilera"}
 }
