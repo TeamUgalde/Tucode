@@ -13,8 +13,8 @@ class Tucode {
         }else {
             // Creates an input stream for reading the console input.
 
-            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
-            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
+            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
+            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
             // Initialize tucode lexer instance.
             TucodeLexer lexer = new TucodeLexer(input)
 
@@ -50,9 +50,13 @@ class Tucode {
             // Starts the parse, generates a tree to be printed and displayed.
             ParseTree tree = parser.program()
 
-            println("\nÁrbol sintáctico (Análisis de sintáxis):")
-            println(tree.toStringTree(parser))
+            //println("\nÁrbol sintáctico (Análisis de sintáxis):")
+            //println(tree.toStringTree(parser))
             if(args.contains("-ig")) tree.inspect(parser);
+
+            //Inicio ast = (Inicio) new ASTBuilder().visit(parseTree);
+
+
         }
     }
 }
