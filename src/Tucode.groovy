@@ -2,6 +2,7 @@
  * Created by diugalde on 5/6/15.
  */
 
+
 import org.antlr.v4.runtime.*
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -13,8 +14,8 @@ class Tucode {
         }else {
             // Creates an input stream for reading the console input.
 
-            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
-            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
+            //ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File("src/examples/"+args[0]))))
+            ANTLRInputStream input = new ANTLRInputStream(new BufferedReader(new FileReader(new File(args[0]))))
             // Initialize tucode lexer instance.
             TucodeLexer lexer = new TucodeLexer(input)
 
@@ -54,8 +55,7 @@ class Tucode {
             //println(tree.toStringTree(parser))
             if(args.contains("-ig")) tree.inspect(parser);
 
-            //Inicio ast = (Inicio) new ASTBuilder().visit(parseTree);
-
+            if(args.contains("-gc")) println("La generación de código no está disponible todavía.")
 
         }
     }
