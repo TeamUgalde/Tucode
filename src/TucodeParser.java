@@ -2,11 +2,8 @@
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class TucodeParser extends Parser {
@@ -153,6 +150,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor) return ((TucodeVisitor<? extends T>)visitor).visitExpression(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -332,6 +334,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitElement(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitElement(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ElementContext element() throws RecognitionException {
@@ -385,6 +392,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitLiteral(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitLiteral(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final LiteralContext literal() throws RecognitionException {
@@ -431,6 +443,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitId_decl(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitId_decl(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Id_declContext id_decl() throws RecognitionException {
@@ -476,6 +493,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitVar_decl(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitVar_decl(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -526,6 +548,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitFor_var_decl(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitFor_var_decl(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final For_var_declContext for_var_decl() throws RecognitionException {
@@ -571,6 +598,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitVar_assign(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitVar_assign(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -618,6 +650,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitFor_var_assign(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitFor_var_assign(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -670,6 +707,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitData_type(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitData_type(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -734,6 +776,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitType_int(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitType_int(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Type_intContext type_int() throws RecognitionException {
@@ -769,6 +816,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitType_char(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitType_char(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -806,6 +858,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitType_bool(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitType_bool(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Type_boolContext type_bool() throws RecognitionException {
@@ -841,6 +898,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitType_string(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitType_string(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -882,6 +944,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitResult(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitResult(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -950,6 +1017,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitSentence(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitSentence(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1063,6 +1135,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitIf_conditional(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitIf_conditional(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final If_conditionalContext if_conditional() throws RecognitionException {
@@ -1129,6 +1206,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitParams(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitParams(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParamsContext params() throws RecognitionException {
@@ -1185,6 +1267,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitParam(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitParam(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParamContext param() throws RecognitionException {
@@ -1230,6 +1317,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitArguments(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitArguments(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1287,6 +1379,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitArgument(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitArgument(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ArgumentContext argument() throws RecognitionException {
@@ -1334,6 +1431,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitBlock(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitBlock(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1459,6 +1561,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitFunction_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitFunction_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Function_defContext function_def() throws RecognitionException {
@@ -1553,6 +1660,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitFunction_defined(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitFunction_defined(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1687,6 +1799,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitLength_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitLength_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Length_defContext length_def() throws RecognitionException {
@@ -1737,6 +1854,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitPower_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitPower_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1790,6 +1912,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitPrintln_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitPrintln_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Println_defContext println_def() throws RecognitionException {
@@ -1837,6 +1964,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitPrint_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitPrint_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1886,6 +2018,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitIsPositive_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitIsPositive_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final IsPositive_defContext isPositive_def() throws RecognitionException {
@@ -1933,6 +2070,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitAbs_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitAbs_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1982,6 +2124,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitUppercase_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitUppercase_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Uppercase_defContext uppercase_def() throws RecognitionException {
@@ -2029,6 +2176,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitLowercase_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitLowercase_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2078,6 +2230,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitNod_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitNod_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Nod_defContext nod_def() throws RecognitionException {
@@ -2125,6 +2282,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitIsEmpty_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitIsEmpty_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2174,6 +2336,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitToInt_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitToInt_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ToInt_defContext toInt_def() throws RecognitionException {
@@ -2221,6 +2388,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitIsDigit_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitIsDigit_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2272,6 +2444,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitWhile_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitWhile_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2327,6 +2504,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitDowhile_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitDowhile_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2393,6 +2575,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitFor_def(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitFor_def(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2473,6 +2660,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitLoop_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitLoop_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Loop_defContext loop_def() throws RecognitionException {
@@ -2522,6 +2714,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitUser_function_defined(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitUser_function_defined(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2579,6 +2776,11 @@ public class TucodeParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitMain_def(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitMain_def(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final Main_defContext main_def() throws RecognitionException {
@@ -2633,6 +2835,11 @@ public class TucodeParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof TucodeListener ) ((TucodeListener)listener).exitProgram(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof TucodeVisitor ) return ((TucodeVisitor<? extends T>)visitor).visitProgram(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

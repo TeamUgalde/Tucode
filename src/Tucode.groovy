@@ -2,6 +2,7 @@
  * Created by diugalde on 5/6/15.
  */
 
+
 import org.antlr.v4.runtime.*
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -50,9 +51,12 @@ class Tucode {
             // Starts the parse, generates a tree to be printed and displayed.
             ParseTree tree = parser.program()
 
-            println("\nÁrbol sintáctico (Análisis de sintáxis):")
-            println(tree.toStringTree(parser))
+            //println("\nÁrbol sintáctico (Análisis de sintáxis):")
+            //println(tree.toStringTree(parser))
             if(args.contains("-ig")) tree.inspect(parser);
+
+            if(args.contains("-gc")) println("La generación de código no está disponible todavía.")
+
         }
     }
 }
